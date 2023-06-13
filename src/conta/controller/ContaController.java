@@ -48,13 +48,28 @@ public class ContaController implements ContaRepository{
 
 	@Override
 	public void atualizar(Conta conta) {
-		// TODO Auto-generated method stub
+	var buscarconta = buscarNaCollection(conta.getNumero());
+
+		if (buscarconta != null) {
+			listaContas.set(listaContas.indexOf(buscarconta), conta);
+			System.out.println("\nA Conta Numero :" + conta.getNumero() + " Foi Atualizada Com Sucesso!!");
+		} else
+			System.out.println("\nA Conta Numero :" + conta.getNumero() + " Não Foi Encontrada!!");
+	}	
 		
-	}
+	
 
 	@Override
 	public void deletar(int numero) {
-		// TODO Auto-generated method stub
+		var Conta = buscarNaCollection(numero);
+
+		if (Conta != null) {
+			if (listaContas.remove(Conta) == true)
+				System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "\n\tA Conta Numero :" + numero
+						+ " Foi Deletada Com Sucesso!" + Cores.TEXT_RESET);
+		} else
+			System.out.println("\n\tA Conta Numero :" + numero + " Não Foi Encontrada!!");
+	
 		
 	}
 

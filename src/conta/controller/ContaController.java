@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import conta.model.Conta;
 import contarepository.ContaRepository;
+import conta.util.Cores;
 
 public class ContaController implements ContaRepository{
 	
@@ -18,7 +19,6 @@ public class ContaController implements ContaRepository{
      @Override
      public void procurarPorNumero(int numero) {
  		var conta = buscarNaCollection(numero);
- 		
  		if (conta != null)
  			conta.visualizar();
  		else 
@@ -31,11 +31,9 @@ public class ContaController implements ContaRepository{
  		for (var conta : listaContas) {
  			conta.visualizar();
  		}
- 		// TODO Auto-generated method stub
+ 
  		
  	}
-     
-    
      
 
 	@Override
